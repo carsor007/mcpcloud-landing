@@ -47,6 +47,80 @@
     </div>
   </section>
 
+  <!-- Architecture diagram -->
+  <section class="section arch-section">
+    <div class="container">
+      <p class="arch-label">Where MCPCloud fits in your stack</p>
+      <div class="arch">
+
+        <!-- Left: AI Clients -->
+        <div class="arch-col">
+          <div class="arch-col-title">AI Clients</div>
+          <div class="arch-node">Claude Desktop</div>
+          <div class="arch-node">Cursor</div>
+          <div class="arch-node">Claude API</div>
+          <div class="arch-node muted">Any MCP client</div>
+        </div>
+
+        <!-- Arrow left -->
+        <div class="arch-arrow-wrap">
+          <div class="arch-arrow-label">MCP tool call</div>
+          <div class="arch-pipe">
+            <span class="arch-dot d1"></span>
+            <span class="arch-dot d2"></span>
+            <span class="arch-dot d3"></span>
+          </div>
+          <div class="arch-arrow-label return">JSON response</div>
+          <div class="arch-pipe return">
+            <span class="arch-dot d1"></span>
+            <span class="arch-dot d2"></span>
+            <span class="arch-dot d3"></span>
+          </div>
+        </div>
+
+        <!-- Center: MCPCloud -->
+        <div class="arch-col center">
+          <div class="arch-center-box">
+            <div class="arch-center-title">MCPCloud</div>
+            <div class="arch-center-sub">Your skills in Python</div>
+            <div class="arch-center-tags">
+              <span>jira_ops</span>
+              <span>slack_ops</span>
+              <span>your_skill</span>
+            </div>
+            <div class="arch-center-infra">ECS Fargate · Redis · ALB</div>
+          </div>
+        </div>
+
+        <!-- Arrow right -->
+        <div class="arch-arrow-wrap">
+          <div class="arch-arrow-label">REST / SDK call</div>
+          <div class="arch-pipe">
+            <span class="arch-dot d1"></span>
+            <span class="arch-dot d2"></span>
+            <span class="arch-dot d3"></span>
+          </div>
+          <div class="arch-arrow-label return">API response</div>
+          <div class="arch-pipe return">
+            <span class="arch-dot d1"></span>
+            <span class="arch-dot d2"></span>
+            <span class="arch-dot d3"></span>
+          </div>
+        </div>
+
+        <!-- Right: Enterprise Systems -->
+        <div class="arch-col">
+          <div class="arch-col-title">Your Systems</div>
+          <div class="arch-node">Jira</div>
+          <div class="arch-node">Slack</div>
+          <div class="arch-node">Salesforce</div>
+          <div class="arch-node muted">Any internal API</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- How it works -->
   <section class="section">
     <div class="container">

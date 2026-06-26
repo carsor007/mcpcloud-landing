@@ -217,6 +217,176 @@ nav {
 .hero-code .s { color: #e8b96a; }
 .hero-code .b { color: #f08060; }
 
+/* ── Architecture diagram ──────────────────────────────────────────────────── */
+
+.arch-section { padding: 64px 24px; background: var(--bg-alt); }
+
+.arch-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.arch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+/* Side columns */
+.arch-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 130px;
+}
+
+.arch-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.arch-node {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.arch-node.muted { color: var(--muted); border-style: dashed; }
+
+/* Center box */
+.arch-col.center { min-width: 180px; }
+
+.arch-center-box {
+  background: var(--surface);
+  border: 1px solid rgba(124,111,247,0.5);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 0 32px rgba(124,111,247,0.1);
+}
+
+.arch-center-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.arch-center-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.arch-center-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.arch-center-tags span {
+  background: rgba(124,111,247,0.12);
+  border: 1px solid rgba(124,111,247,0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent-hi);
+}
+
+.arch-center-infra {
+  font-size: 10px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* Animated pipes */
+.arch-arrow-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  margin-top: 28px;
+}
+
+.arch-arrow-label {
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.arch-arrow-label.return { color: rgba(124,111,247,0.6); }
+
+.arch-pipe {
+  width: 80px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-pipe.return {
+  background: rgba(124,111,247,0.15);
+}
+
+.arch-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-hi);
+  top: -3px;
+  animation: flow 2s linear infinite;
+}
+
+.arch-pipe.return .arch-dot {
+  background: rgba(124,111,247,0.6);
+  animation: flow-back 2.4s linear infinite;
+}
+
+.arch-dot.d1 { animation-delay: 0s; }
+.arch-dot.d2 { animation-delay: 0.65s; }
+.arch-dot.d3 { animation-delay: 1.3s; }
+
+@keyframes flow {
+  0%   { left: -8px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes flow-back {
+  0%   { left: 100%; opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { left: -8px; opacity: 0; }
+}
+
 /* ── Sections ──────────────────────────────────────────────────────────────── */
 
 .section { padding: 88px 24px; }
@@ -488,6 +658,14 @@ footer {
 
   /* Sections */
   .section { padding: 56px 16px; }
+
+  /* Architecture diagram */
+  .arch { gap: 0; }
+  .arch-pipe { width: 48px; }
+  .arch-node { font-size: 11px; padding: 6px 10px; }
+  .arch-col { min-width: 100px; }
+  .arch-col.center { min-width: 140px; }
+  .arch-arrow-label { display: none; }
 
   /* Features — single column */
   .features { grid-template-columns: 1fr; }
