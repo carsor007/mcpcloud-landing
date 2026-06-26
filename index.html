@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCPCloud — Self-Hosted MCP Gateway</title>
+  <meta name="description" content="Expose any Python function as an MCP tool. Connect Claude, Cursor, or any MCP client to your internal systems in minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">MCP<span>Cloud</span></a>
+      <div class="nav-links">
+        <a href="https://github.com/carsor007/mcpcloud" target="_blank">GitHub</a>
+        <a href="https://github.com/carsor007/mcpcloud#adding-a-skill" target="_blank">Docs</a>
+        <a href="https://aws.amazon.com/marketplace" target="_blank" class="btn-nav">AWS Marketplace</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="badge">Open Source · Apache 2.0</div>
+    <h1>Your internal tools,<br />callable by any AI.</h1>
+    <p class="hero-sub">
+      Write a Python function. Register it as a skill.<br />
+      Claude, Cursor, or any MCP client can call it instantly.
+    </p>
+    <div class="hero-actions">
+      <a href="https://github.com/carsor007/mcpcloud" target="_blank" class="btn-primary">View on GitHub</a>
+      <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://raw.githubusercontent.com/carsor007/mcpcloud/main/deploy/aws/cloudformation.yaml&stackName=mcpcloud" target="_blank" class="btn-secondary">Deploy to AWS</a>
+    </div>
+    <div class="hero-code">
+      <pre><code><span class="c"># skills/jira_ops.py</span>
+<span class="k">async def</span> <span class="fn">create_ticket</span>(input: dict, ctx: dict) -> SkillResult:
+    <span class="s">"""Create a Jira issue from any MCP client."""</span>
+    <span class="c"># real Jira REST API call — stub when unconfigured</span>
+    resp = <span class="k">await</span> client.post(jira_url, json={...})
+    <span class="k">return</span> SkillResult(success=<span class="b">True</span>, output={<span class="s">"key"</span>: resp[<span class="s">"key"</span>]})</code></pre>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Write a skill</h3>
+          <p>Drop a <code>.py</code> file into <code>skills/</code>. Any async function becomes a registered tool.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Start MCPCloud</h3>
+          <p>Run with Docker Compose locally or deploy to AWS in one click. Skills are auto-discovered on startup.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Connect your client</h3>
+          <p>Point Claude Desktop, Cursor, or any MCP client at your endpoint. Your tools appear immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section alt">
+    <div class="container">
+      <h2>Built for enterprise teams</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Any Python function</h3>
+          <p>No framework to learn. If you can write a function, you can expose it as an MCP tool.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔌</div>
+          <h3>Real integrations</h3>
+          <p>Ships with Jira and Slack skills out of the box. Real API calls when configured, stubs otherwise.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <h3>Self-hosted</h3>
+          <p>Your data never leaves your infrastructure. Credentials stay in AWS Secrets Manager.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📦</div>
+          <h3>Multi-worker ready</h3>
+          <p>Redis-backed session tracking. Scale ECS tasks horizontally without losing MCP session state.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <h3>Tool browser UI</h3>
+          <p>Built-in <code>/ui</code> to browse, inspect, and test every registered skill without a client.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">☁️</div>
+          <h3>One-click AWS deploy</h3>
+          <p>CloudFormation stack: ECS Fargate, ALB, ElastiCache, Secrets Manager. Up in under 10 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deploy -->
+  <section class="section">
+    <div class="container narrow">
+      <h2>Deploy in two ways</h2>
+      <div class="deploy-options">
+        <div class="deploy-card">
+          <h3>Self-hosted</h3>
+          <p>Clone the repo and run with Docker Compose. Full control, zero cost beyond your infrastructure.</p>
+          <pre><code>git clone https://github.com/carsor007/mcpcloud.git
+cd mcpcloud
+cp .env.example .env
+docker compose up</code></pre>
+          <a href="https://github.com/carsor007/mcpcloud" target="_blank" class="btn-outline">View on GitHub →</a>
+        </div>
+        <div class="deploy-card highlight">
+          <div class="card-badge">Managed</div>
+          <h3>AWS Marketplace</h3>
+          <p>One-click deploy to your AWS account. ECS Fargate + Redis + ALB provisioned automatically.</p>
+          <ul>
+            <li>No ECR setup required</li>
+            <li>Secrets Manager for credentials</li>
+            <li>CloudWatch logging included</li>
+            <li>HTTPS via ACM (optional)</li>
+          </ul>
+          <a href="https://aws.amazon.com/marketplace" target="_blank" class="btn-primary">Subscribe on AWS Marketplace →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="logo">MCP<span>Cloud</span></span>
+        <div class="footer-links">
+          <a href="https://github.com/carsor007/mcpcloud" target="_blank">GitHub</a>
+          <a href="https://github.com/carsor007/mcpcloud/blob/main/LICENSE" target="_blank">Apache 2.0</a>
+          <a href="https://aws.amazon.com/marketplace" target="_blank">AWS Marketplace</a>
+        </div>
+        <span class="footer-copy">© 2026 Sam Njoroge</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
