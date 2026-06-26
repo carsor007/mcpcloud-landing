@@ -45,14 +45,19 @@ nav {
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
   text-decoration: none;
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
 }
 
-.logo span { color: var(--accent); }
+.logo-img {
+  height: 28px;
+  width: auto;
+}
+
+.footer-logo {
+  height: 22px;
+}
 
 .nav-links {
   display: flex;
