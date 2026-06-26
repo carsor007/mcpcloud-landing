@@ -171,6 +171,19 @@ nav {
 
 /* ── Hero code block ───────────────────────────────────────────────────────── */
 
+.hero-demo-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.hero-demo-note a {
+  color: var(--accent-hi);
+  text-decoration: none;
+}
+
+.hero-demo-note a:hover { text-decoration: underline; }
+
 .hero-code {
   background: var(--code-bg);
   border: 1px solid var(--border);
