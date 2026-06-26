@@ -13,7 +13,10 @@
   --green:     #4ade80;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -21,6 +24,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 /* ── Nav ───────────────────────────────────────────────────────────────────── */
@@ -462,10 +466,37 @@ footer {
 /* ── Mobile ────────────────────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
+  html, body { overflow-x: hidden; }
+
+  /* Nav */
+  .nav-inner { height: auto; padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
+  .logo-img { height: 56px; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 12px; }
+  .btn-nav { padding: 5px 10px; font-size: 11px !important; }
+
+  /* Hero */
+  .hero { padding: 48px 16px 48px; }
+  .hero-sub br { display: none; }
+  .hero-sub { font-size: 16px; }
+
+  /* Steps */
   .step-arrow { display: none; }
   .steps { flex-direction: column; align-items: center; }
   .step { max-width: 100%; text-align: center; }
   .step-num { margin: 0 auto 14px; }
+
+  /* Sections */
+  .section { padding: 56px 16px; }
+
+  /* Features — single column */
+  .features { grid-template-columns: 1fr; }
+
+  /* Deploy */
+  .deploy-options { grid-template-columns: 1fr; }
+
+  /* Footer */
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { justify-content: center; }
+  .footer-logo { height: 44px; }
 }
