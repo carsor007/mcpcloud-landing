@@ -217,6 +217,35 @@ nav {
 .hero-code .s { color: #e8b96a; }
 .hero-code .b { color: #f08060; }
 
+/* ── Code tabs ─────────────────────────────────────────────────────────────── */
+
+.hero-code { padding: 0; }
+
+.code-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 8px;
+}
+
+.code-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  padding: 10px 14px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.code-tab:hover { color: var(--text); }
+.code-tab.active { color: var(--accent-hi); border-bottom-color: var(--accent); }
+
+.code-panel { display: none; padding: 20px 28px 24px; }
+.code-panel.active { display: block; }
+
 /* ── Architecture diagram ──────────────────────────────────────────────────── */
 
 .arch-section { padding: 64px 24px; background: var(--bg-alt); }
