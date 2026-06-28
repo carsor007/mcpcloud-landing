@@ -458,6 +458,23 @@ h2 {
   margin-top: 8px;
 }
 
+/* ── Features header ───────────────────────────────────────────────────────── */
+
+.features-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.features-header h2 { margin-bottom: 16px; }
+
+.features-positioning {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.features-positioning br { display: block; }
+
 /* ── Features ──────────────────────────────────────────────────────────────── */
 
 .features {
@@ -475,8 +492,6 @@ h2 {
 }
 
 .feature:hover { border-color: rgba(124,111,247,0.4); }
-
-.feature-icon { font-size: 24px; margin-bottom: 14px; }
 
 .feature h3 {
   font-size: 16px;
